@@ -7,7 +7,7 @@ import axios from 'axios';
 import { apiURL } from '../../utils/localStorage';
 import moment from 'moment';
 import { MyHeader, MyInput } from '../../components';
-export default function ({ navigation, route }) {
+export default function Artikel({ navigation, route }) {
     const item = route.params;
     const [data, setData] = useState({});
     const [loading, setLoading] = useState(false);

@@ -14,7 +14,9 @@ export default function ({ navigation, route }) {
 
   const getDataTransaksi = () => {
     setLoading(true);
-    axios.post(apiURL + 'artikel').then(res => {
+    axios.post(apiURL + 'artikel', {
+      fid_menu: route.params.id
+    }).then(res => {
       console.log(res.data);
       setData(res.data);
       setTMP(res.data)
@@ -83,7 +85,7 @@ export default function ({ navigation, route }) {
       backgroundColor: colors.primary
     }}>
 
-      <MyHeader judul="Artikel Lainnya" onPress={() => navigation.goBack()} />
+      <MyHeader judul={item.menu} onPress={() => navigation.goBack()} />
 
 
 

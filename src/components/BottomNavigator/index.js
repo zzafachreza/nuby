@@ -43,7 +43,7 @@ export default function BottomNavigator({ state, descriptors, navigation }) {
   }
 
   return (
-    <View style={{ backgroundColor: colors.white, flexDirection: 'row',  borderTopLeftRadius:20, borderTopRightRadius:20}}>
+    <View style={{ backgroundColor: colors.white, flexDirection: 'row', borderTopLeftRadius: 20, borderTopRightRadius: 20 }}>
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
         const label =
@@ -135,7 +135,7 @@ export default function BottomNavigator({ state, descriptors, navigation }) {
                   justifyContent: 'center',
                   alignItems: 'center',
                   position: 'relative',
-                
+
                 }}>
                 {/* {label == 'Cart' && <Text style={{
                   position: 'absolute', top: 0, right: 20, bottom: 0, backgroundColor: colors.white, width: 15,
@@ -147,14 +147,14 @@ export default function BottomNavigator({ state, descriptors, navigation }) {
                   name={isFocused ? iconName.replace('-outline', '') : iconName}
                   type="ionicon"
                   size={MyDimensi / 3}
-                  color={isFocused ? colors.primary : "#dededede"}
+                  color={isFocused ? colors.primary : colors.black}
                 />
 
                 <Text
                   style={{
                     fontSize: MyDimensi / 5,
-                    color: isFocused ? colors.black : "#dededede",
-                    fontFamily:fonts.primary[600]
+                    color: isFocused ? colors.black : colors.black,
+                    fontFamily: fonts.primary[600]
                   }}>
                   {Newlabel}
                 </Text>

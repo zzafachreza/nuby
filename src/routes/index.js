@@ -25,7 +25,7 @@ import {
   GayaBelajarVisual,
   GayaBelajarAudio,
   GayaBelajarReading,
-  
+
 
   GayaBelajarKinaesthetic,
   Diagnosa2,
@@ -116,7 +116,7 @@ export default function Router() {
         }}
       />
 
-<Stack.Screen
+      <Stack.Screen
         name="IMTCalculator"
         component={IMTCalculator}
         options={{
@@ -126,8 +126,8 @@ export default function Router() {
       />
 
 
-      
-<Stack.Screen
+
+      <Stack.Screen
         name="HasilIMTCalculator"
         component={HasilIMTCalculator}
         options={{
@@ -137,7 +137,7 @@ export default function Router() {
       />
 
 
-<Stack.Screen
+      <Stack.Screen
         name="HomeAnemia"
         component={HomeAnemia}
         options={{
@@ -146,7 +146,7 @@ export default function Router() {
         }}
       />
 
-<Stack.Screen
+      <Stack.Screen
         name="WhatsIsAnemia"
         component={WhatsIsAnemia}
         options={{
@@ -155,7 +155,7 @@ export default function Router() {
         }}
       />
 
-<Stack.Screen
+      <Stack.Screen
         name="AnemiaCouses"
         component={AnemiaCouses}
         options={{
@@ -166,7 +166,7 @@ export default function Router() {
 
 
 
-<Stack.Screen
+      <Stack.Screen
         name="TypeAnemia"
         component={TypeAnemia}
         options={{
@@ -175,7 +175,7 @@ export default function Router() {
         }}
       />
 
-<Stack.Screen
+      <Stack.Screen
         name="AnemiaHelt"
         component={AnemiaHelt}
         options={{
@@ -186,7 +186,7 @@ export default function Router() {
 
 
 
-<Stack.Screen
+      <Stack.Screen
         name="ArtikeLainnya"
         component={ArtikelLainnya}
         options={{
@@ -196,8 +196,8 @@ export default function Router() {
       />
 
 
-      
-<Stack.Screen
+
+      <Stack.Screen
         name="BelajarReading"
         component={GayaBelajarReading}
         options={{
@@ -210,7 +210,7 @@ export default function Router() {
 
 
 
-<Stack.Screen
+      <Stack.Screen
         name="BelajarKinaesthetic"
         component={GayaBelajarKinaesthetic}
         options={{

@@ -137,7 +137,7 @@ export default function Login({ navigation }) {
               ...kirim,
               telepon: x
             })
-          } iconname="call" placeholder="Masukan Nomor Telepon" />
+          } iconname="call" keyboardType='phone-pad' placeholder="Masukan Nomor Telepon" />
 
 
           <MyGap jarak={20} />

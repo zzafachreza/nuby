@@ -1,6 +1,6 @@
 import { View, Text, ScrollView, Image } from 'react-native'
 import React from 'react'
-import { MyDimensi, colors, fonts } from '../../utils'
+import { MyDimensi, colors, fonts, windowHeight, windowWidth } from '../../utils'
 import { MyButton, MyGap, MyHeader, MyInput, MyPicker } from '../../components'
 colors
 
@@ -17,7 +17,7 @@ export default function HasilIMTCalculator({ navigation, route }) {
     } else if (IMT >= 18.5 && IMT <= 25) {
         GIZI = 'Normal';
     } else if (IMT > 25 && IMT <= 27) {
-        GIZI = 'Gemuk';
+        GIZI = 'Kelebihan Berat Badan';
     } else if (IMT > 27) {
         GIZI = 'Obesitas';
     }
@@ -55,8 +55,9 @@ export default function HasilIMTCalculator({ navigation, route }) {
                 <MyGap jarak={20} />
                 <View>
                     <Image source={require('../../assets/keteranganhasilimt.png')} style={{
-                        width: 327,
-                        height: 511,
+                        width: windowWidth,
+                        resizeMode: 'contain',
+                        height: windowHeight / 2,
 
                     }} />
                 </View>

@@ -21,24 +21,33 @@ export default function Home({ navigation, route }) {
 
   const [user, setUser] = useState({});
   const isFocus = useIsFocused();
-  const [data, setData] = useState([{"halaman": "AsupanMpasi", "id": "1", "image": "https://simonev.okeadmin.com/datafoto/a0003ce4349b2c7d4eff29b6d51a37075a774c47.png", "judul": "Asupan  MPASI", "warna": "#FE9A3B33"}, {"halaman": "AsupanAsi", "id": "2", "image": "https://simonev.okeadmin.com/datafoto/4f8b42e79f74f6c6d5a45865b9d5d9ca20a2a33e.png", "judul": "Asupan ASI", "warna": "#FF96A533"}, {"halaman": "StatusGizi", "id": "3", "image": "https://simonev.okeadmin.com/datafoto/43f86c8c8d15892eb4fbbd6466051168022d3918.png", "judul": "Status Gizi", "warna": "#FFA72633"}, {"halaman": "TanyaJawab", "id": "4", "image": "https://simonev.okeadmin.com/datafoto/abf1442b27cc406e0320e251e6ac57ba62d2128a.png", "judul": "Tanya Jawab", "warna": "#FFE29433"}, {"halaman": "Artikel", "id": "5", "image": "https://simonev.okeadmin.com/datafoto/655b4e3a81f3c760a001b1199ccb38aa6c1e63c4.png", "judul": "Artikel", "warna": "#CCE0F133"}, {"halaman": "Video", "id": "6", "image": "https://simonev.okeadmin.com/datafoto/9c25ee17076411e53acbefd97c3a40240642013a.png", "judul": "Video", "warna": "#C92B7433"}, {"halaman": "Resep", "id": "7", "image": "https://simonev.okeadmin.com/datafoto/30eea7e269ad623a515074c7b6ef65680b2bed84.png", "judul": "Resep MPASI", "warna": "#FFCDBC33"}, {"halaman": "Faq", "id": "8", "image": "https://simonev.okeadmin.com/datafoto/87a8a923f8334cde6a8fab507ea83964a76248d1.png", "judul": "FAQ", "warna": "#9CC44533"}, {"halaman": "GameKuis", "id": "9", "image": "https://simonev.okeadmin.com/datafoto/98b60a5ebe438acf92a114070e89ed0a52d11754.png", "judul": "Game Kuis", "warna": "#56D8D833"}]);
+  const [data, setData] = useState([]);
   const [open, setOpen] = useState(false);
   const [comp, setComp] = useState({});
 
-  const _getTransaction = async () => {
+  const _getTransaction = () => {
 
 
-    await getData('user').then(u => {
+    getData('user').then(u => {
       setUser(u);
+      axios.post(apiURL + 'menu').then(res => {
+        console.log(res.data);
+        setData(res.data);
+
+      });
+
     })
 
-    await axios.post(apiURL + 'company').then(res => {
+    axios.post(apiURL + 'company').then(res => {
 
       setComp(res.data.data);
 
     });
 
- 
+
+
+
+
   }
 
 
@@ -87,131 +96,109 @@ export default function Home({ navigation, route }) {
 
   return (
 
-    <View  style={{
-      flex:1,
-      width:"100%",
-      height:"100%",
-  
-      backgroundColor:colors.primary,
-
-    
-
-    }}>
-
-    {/* HEADERS */}
     <View style={{
-      flexDirection:"row",
-      backgroundColor:colors.white,
-      padding:10,
-      borderBottomLeftRadius:5,
-      borderBottomRightRadius:5,
-      justifyContent:'space-between'
+      flex: 1,
+      width: "100%",
+      height: "100%",
+
+      backgroundColor: colors.primary,
+
 
 
     }}>
 
-    <View>
-      <Text style={{
-        fontFamily:fonts.primary[800],
-        color:'black'
-
-      }}>Selamat Datang,</Text>
-      <Text style={{fontFamily:fonts.primary[400], color:"black"}}>
-        Fadhlan Himawan
-      </Text>
-    </View>
-
-    <View>
-    </View>
-
-    </View>
-
-    <ScrollView>
-{/* MAIN CONTRNT */}
-<View style={{padding:10,}}>
+      {/* HEADERS */}
+      <View style={{
+        flexDirection: "row",
+        backgroundColor: colors.white,
+        padding: 10,
+        borderBottomLeftRadius: 5,
+        borderBottomRightRadius: 5,
+        justifyContent: 'space-between'
 
 
-{/* IMT KALKULATOR */}
-<View style={{padding:10, }}>
-<TouchableNativeFeedback onPress={() =>navigation.navigate('IMTCalculator')}>
-  <View style={{flexDirection:"row", backgroundColor:colors.secondary, padding:10, justifyContent:"center", alignItems:'center',
-  borderRadius:5, }}>
-  <Image source={require('../../assets/imtcalcualtoricon.png')} style={{
-    width:51,
-    height:51,
-    left: -20
-  }}/>
-<Text style={{
-  fontFamily:fonts.primary[600],
-  fontSize: MyDimensi/2.5
-}}>IMT Calculator</Text>
-  </View>
-</TouchableNativeFeedback>
+      }}>
+
+        <View>
+          <Text style={{
+            fontFamily: fonts.primary[800],
+            color: 'black'
+
+          }}>Selamat Datang,</Text>
+          <Text style={{ fontFamily: fonts.primary[400], color: "black" }}>
+            {user.nama_lengkap}
+          </Text>
+        </View>
+
+        <View>
+        </View>
+
+      </View>
+
+      <View style={{
+        flex: 1,
+        padding: 10,
+      }}>
 
 
-</View>
 
 
-  {/* ARTIKEL */}
-  <View style={{padding:10,}}>
-  {/* NANTI DISINI ADA MENU ARTIKEL DAN ADMIN AKAN MENAMBAHKAN DI WEBNYA */}
-{/* DISINI SAYA MENARUH ARTILKEN YANG SUDAH DI FIGMA SEBEGAI CONTOH */}
-
-<TouchableNativeFeedback onPress={() => navigation.navigate('HomeAnemia')}>
-  <View style={{flexDirection:"row", backgroundColor:colors.secondary, padding:10, justifyContent:"center", alignItems:'center',
-  borderRadius:5, }}>
-  <Image source={require('../../assets/artikelanemia.png')} style={{
-    width:51,
-    height:51,
-    left: -60
-  }}/>
-<Text style={{
-  fontFamily:fonts.primary[600],
-  fontSize: MyDimensi/2.5,
-  left: -10
-}}>Anemia</Text>
-  </View>
-</TouchableNativeFeedback>
-
-</View>
-
-{/* ARTIKEL LAINNYA */}
-<View style={{padding:10,}}>
-  {/* NANTI DISINI ADA MENU ARTIKEL DAN ADMIN AKAN MENAMBAHKAN DI WEBNYA */}
-{/* DISINI SAYA MENARUH ARTILKEN YANG SUDAH DI FIGMA SEBEGAI CONTOH */}
-
-<TouchableNativeFeedback onPress={() => navigation.navigate('ArtikeLainnya')}>
-  <View style={{flexDirection:"row", backgroundColor:colors.secondary, padding:10, justifyContent:"center", alignItems:'center',
-  borderRadius:5, }}>
-  <Image source={require('../../assets/artikellainnya.png')} style={{
-    width:51,
-    height:51,
-    left: -27
-  }}/>
-<Text style={{
-  fontFamily:fonts.primary[600],
-  fontSize: MyDimensi/2.8,
-  left: -10
-}}>Artikel Lainnya</Text>
-  </View>
-</TouchableNativeFeedback>
-
-</View>
-
-<MyGap jarak={50}/>
+        <FlatList data={data} renderItem={({ item, index }) => {
+          return (
+            <TouchableNativeFeedback onPress={() => {
+              if (item.id == 0) {
+                navigation.navigate('IMTCalculator')
+              } else {
+                navigation.navigate('ArtikeLainnya', item)
+              }
+            }}>
+              <View style={{
+                marginVertical: 5,
+                flexDirection: "row",
+                backgroundColor: colors.secondary,
+                padding: 10,
+                alignItems: 'center',
+                borderRadius: 5,
+              }}>
+                <Image source={{
+                  uri: item.image
+                }} style={{
+                  marginHorizontal: 10,
+                  width: 50,
+                  height: 50,
+                  resizeMode: 'contain'
+                }} />
+                <Text style={{
+                  flex: 1,
+                  left: 10,
+                  fontFamily: fonts.primary[600],
+                  fontSize: 18
+                }}>{item.menu}</Text>
+              </View>
+            </TouchableNativeFeedback>
+          )
+        }} />
 
 
-  
 
-</View>
 
-<MyGap jarak={50}/>
-    </ScrollView>
 
+
+
+
+
+
+
+
+
+
+
+
+      </View>
 
 
     </View>
-  
+
   )
 }
 
