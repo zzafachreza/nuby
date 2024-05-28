@@ -16,12 +16,12 @@ import { BackgroundImage } from 'react-native-elements/dist/config';
 
 export default function Splash({ navigation }) {
 
-  const img = new Animated.Value(windowWidth / 0.3);
+  const img = new Animated.Value(0.6);
   const text = new Animated.Value(0);
   Animated.timing(img, {
-    toValue: windowWidth / 0.9,
-    duration: 750,
-    useNativeDriver: false,
+    toValue: 1.2,
+    duration: 800,
+    useNativeDriver: true,
   }).start();
 
   Animated.timing(text, {
@@ -58,26 +58,31 @@ export default function Splash({ navigation }) {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor:colors.white
-      
+        backgroundColor: colors.white
+
       }}>
-     <ImageBackground source={require('../../assets/bgimg.png')}   style={{
-      flex:1,
-      width:'100%',
-      height:'100%',
-      justifyContent: 'center',
-    alignItems: 'center',
-    
-     }}>
-     <Animated.Image
-        source={require('../../assets/icon.png')}
-          resizeMode="contain"
-          style={{
-            width: img,
-            height: img
-          }}
-        />
-        {/* <Animated.Text style={{
+        <ImageBackground source={require('../../assets/bgimg.png')} style={{
+          flex: 1,
+          width: '100%',
+          height: '100%',
+          justifyContent: 'center',
+          alignItems: 'center',
+
+        }}>
+          <Animated.Image
+            source={require('../../assets/icon.png')}
+            resizeMode="contain"
+            style={{
+              width: windowWidth / 2,
+              height: windowWidth,
+              transform: [
+                {
+                  scale: img
+                }
+              ]
+            }}
+          />
+          {/* <Animated.Text style={{
           fontFamily: fonts.secondary[800],
           fontSize: MyDimensi/4,
           color: colors.white,
@@ -86,8 +91,8 @@ export default function Splash({ navigation }) {
           textAlign: 'center',
         }}>Monitoring Asupan MPASI</Animated.Text> */}
 
-        <ActivityIndicator color={colors.secondary} size="large" />
-     </ImageBackground>
+          <ActivityIndicator color={colors.secondary} size="large" />
+        </ImageBackground>
       </View>
 
 

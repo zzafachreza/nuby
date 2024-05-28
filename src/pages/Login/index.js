@@ -103,10 +103,10 @@ export default function Login({ navigation }) {
         }}>
 
           <Image source={require('../../assets/icon.png')} style={{
-            height: 280, width: 358,
+            height: 200, width: 200,
             alignItems: 'center',
             alignSelf: "center",
-            marginTop: -30
+            // marginTop: -30
           }} />
 
 
