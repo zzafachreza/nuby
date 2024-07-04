@@ -60,12 +60,13 @@ export default function ({ navigation, route }) {
             bottom: 0,
             width: '100%',
             padding: 10,
-            height: 50,
+            height: 80,
             backgroundColor: colors.secondary
           }}>
             <Text style={{
               fontFamily: fonts.secondary[600],
               color: colors.black,
+              textAlign: 'center',
               fontSize: MyDimensi / 4
             }}>{item.judul}</Text>
           </View>

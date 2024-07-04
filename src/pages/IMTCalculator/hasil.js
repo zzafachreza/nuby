@@ -1,11 +1,13 @@
 import { View, Text, ScrollView, Image } from 'react-native'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { MyDimensi, colors, fonts, windowHeight, windowWidth } from '../../utils'
 import { MyButton, MyGap, MyHeader, MyInput, MyPicker } from '../../components'
+import { apiURL, getData, storeData } from '../../utils/localStorage'
+import axios from 'axios'
 colors
 
 export default function HasilIMTCalculator({ navigation, route }) {
-
+    const [user, setUser] = useState({});
     const item = route.params;
     const IMT = parseFloat(item.berat_badan / Math.pow(item.tinggi_badan / 100, 2)).toFixed(1);
     var GIZI = '';
@@ -25,6 +27,17 @@ export default function HasilIMTCalculator({ navigation, route }) {
         navigation.goBack();
 
     }
+
+    useEffect(() => {
+        getData('user').then(uu => {
+            axios.post(apiURL + 'add_status_gizi', {
+                id: uu.id,
+                status_gizi: GIZI,
+            })
+            setUser({ ...uu, status_gizi: GIZI });
+            storeData('user', { ...uu, status_gizi: GIZI })
+        })
+    }, [])
     return (
         <View style={{ flex: 1, backgroundColor: colors.primary, }}>
             <MyHeader judul="Hasil IMT Calculator" onPress={backPage} />

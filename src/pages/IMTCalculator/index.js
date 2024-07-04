@@ -26,11 +26,11 @@ export default function IMTCalculator({ navigation }) {
             ...kirim,
             umur: x
           })
-        }} placeholder="Masukan Umur" />
+        }} placeholder="Masukan Umur" value={kirim.umur} />
         <MyGap jarak={20} />
 
         {/* JENIS KELAMIN */}
-        <MyPicker onValueChange={x => {
+        <MyPicker value={kirim.jenis_kelamin} onValueChange={x => {
           setKirim({
             ...kirim,
             jenis_kelamin: x
@@ -47,7 +47,7 @@ export default function IMTCalculator({ navigation }) {
             ...kirim,
             tinggi_badan: x
           })
-        }} label="Tinggi Badan (cm)" placeholder="Masukan Tinggi Badan" />
+        }} label="Tinggi Badan (cm)" value={kirim.tinggi_badan} placeholder="Masukan Tinggi Badan" />
         <MyGap jarak={20} />
 
         {/* Berat Badan */}
@@ -56,7 +56,7 @@ export default function IMTCalculator({ navigation }) {
             ...kirim,
             berat_badan: x
           })
-        }} label="Berat Badan (kg)" placeholder="Masukan Berat Badan" />
+        }} label="Berat Badan (kg)" value={kirim.berat_badan} placeholder="Masukan Berat Badan" />
         <MyGap jarak={20} />
 
         <View style={{ padding: 10, }}>
@@ -64,6 +64,12 @@ export default function IMTCalculator({ navigation }) {
             title="Lihat Hasil"
             onPress={() => {
               console.log(kirim);
+              setKirim({
+                umur: '',
+                jenis_kelamin: 'Laki-laki',
+                tinggi_badan: '',
+                berat_badan: ''
+              })
               navigation.navigate('HasilIMTCalculator', kirim)
             }}
           />

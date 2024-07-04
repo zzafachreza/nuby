@@ -117,7 +117,7 @@ export default function AccountEdit({ navigation, route }) {
 
                 <MyInput label="Nama Lengkap" iconname="person-outline" value={kirim.nama_lengkap} onChangeText={x => setKirim({ ...kirim, nama_lengkap: x })} />
                 <MyGap jarak={5} />
-                <MyInput label="Telepon" iconname="call-outline" keyboardType="phone-pad" value={kirim.telepon} onChangeText={x => setKirim({ ...kirim, telepon: x })} />
+                <MyInput label="No. HP" iconname="call-outline" keyboardType="phone-pad" value={kirim.telepon} onChangeText={x => setKirim({ ...kirim, telepon: x })} />
 
                 <MyGap jarak={5} />
 

@@ -154,9 +154,10 @@ export default function ({ navigation, route }) {
                             }}>{user.level}</Text>
                             <View style={{ padding: 10, }}>
                                 <MyList label="Nama Lengkap" value={user.nama_lengkap} />
-                                <MyList label="Telepon" value={user.telepon} />
+                                <MyList label="No. HP" value={user.telepon} />
                                 <MyList label="Jenis Kelamin" value={user.jenis_kelamin} />
-                                <MyList label="Asak Sekolah" value={user.asal_sekolah} />
+                                <MyList label="Asal Sekolah" value={user.asal_sekolah} />
+                                <MyList label="Status Gizi" value={user.status_gizi} />
 
 
 
